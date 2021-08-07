@@ -31,6 +31,7 @@ router.get('/', [ isAuth ], async (req,res) => {
 
 router.put('/:id', [ isAuth ], async (req,res) => {
     try {
+        console.log("github code");
         const tag = await Tag.updateOne({ _id: req.params.id }, req.body);
         if(tag) return res.status(201).json({data: tag});
         return res.status(400).json({ message: 'Could not update'})
